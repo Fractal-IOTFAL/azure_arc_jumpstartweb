@@ -3,7 +3,7 @@ import "./MenuDrawer.css";
 import MenuCard from "./MenuCard";
 import SubMenuItem from "./SubMenuItem";
 
-const MenuDrawer = ({ menuItem }) => {
+const MenuDrawer = ({ menuItem, handleFileFetch }) => {
   const [subMenuItems, setSubMenuItems] = useState([]);
   const [selectedSubMenuItem, setSelectedSubMenuItem] = useState(null);
   const [selectedMenuCard, setSelectedMenuCard] = useState(null);
@@ -23,6 +23,16 @@ const MenuDrawer = ({ menuItem }) => {
   const handleOnClick = (menuItem) => {
     setSelectedSubMenuItem(menuItem);
     setSelectedMenuCard(null);
+  };
+
+  const handleOnClickMenuCard = (menuItem) => {
+    setSelectedMenuCard((prev) => {
+      if (prev !== menuItem && menuItem.hasOwnProperty("Link")) {
+        handleFileFetch(menuItem.Link);
+        return menuItem;
+      }
+      return null;
+    });
   };
 
   return (
@@ -64,12 +74,12 @@ const MenuDrawer = ({ menuItem }) => {
         <div className="frame-59653">
           <div className="row-1">
             {
-              selectedSubMenuItem && selectedSubMenuItem.Items.map((item, index) => {
+              selectedSubMenuItem && selectedSubMenuItem.Items.filter((item)=>item.hasOwnProperty('Link')).map((item, index) => {
                 return (
                   <MenuCard
-                    label={item.Title}
+                    item={item}
                     selectedMenuCard={selectedMenuCard}
-                    setSelectedMenuCard={setSelectedMenuCard}
+                    setSelectedMenuCard={handleOnClickMenuCard}
                   >
                     {item.Description}
                   </MenuCard>
