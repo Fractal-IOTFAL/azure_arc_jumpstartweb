@@ -64,9 +64,9 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'app-jumpstartdev01'
+          app-name: 'jumpstartpreview'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_JUMPSTARTPREVIEW }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3861F1C9D5D4DCBABC769C322A8E3EA }}
           package: ./release.zip
           type: ZIP
           clean: true
