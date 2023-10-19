@@ -27,9 +27,10 @@ jobs:
       - name: npm install, build, and test
         run: |
           cd azure-arc-jumpstart-app
-          npm run fetch-docs  
-          # npm install
-          # npm run build
+          npm run fetch-docs
+          npm install
+          node run pre-build-script.js
+          npm run build
         env:
           CI: "" # need to fix this later
 
