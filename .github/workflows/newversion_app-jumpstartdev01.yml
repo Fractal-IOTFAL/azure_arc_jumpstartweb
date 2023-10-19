@@ -28,13 +28,15 @@ jobs:
         run: |
           cd azure-arc-jumpstart-app
           npm run fetch-docs  
-          npm install
-          npm run build
+          # npm install
+          # npm run build
         env:
           CI: "" # need to fix this later
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./azure-arc-jumpstart-app/build/* -r
+        run: |
+          cd azure-arc-jumpsstart-app
+          zip release.zip . -r
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
@@ -55,8 +57,8 @@ jobs:
         with:
           name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+      # - name: Unzip artifact for deployment
+      #   run: unzip release.zip
 
       - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
@@ -65,4 +67,7 @@ jobs:
           app-name: 'app-jumpstartdev01'
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_DC9BBDE378474D53812228065E6E9DBD }}
-          package: .
+          package: ./release.zip
+          type: ZIP
+          clean: true
+          restart: true
