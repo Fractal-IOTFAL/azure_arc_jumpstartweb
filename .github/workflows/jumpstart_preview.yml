@@ -47,63 +47,64 @@ jobs:
           name: node-app
           path: azure-arc-jumpstart-app/release.zip
 
-  deploy-to-staging:
-    runs-on: ubuntu-latest
-    needs: build
-    environment:
-      name: 'Staging'
-      url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
+  # deploy-to-staging:
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   environment:
+  #     name: 'Staging'
+  #     url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
 
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v3
-        with:
-          name: node-app
+  #   steps:
+  #     - name: Download artifact from build job
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: node-app
 
-      - name: Unzip artifact for deployment
-        run: unzip release.zip
+  #     - name: Unzip artifact for deployment
+  #       run: unzip release.zip
 
-      - name: 'Deploy to Azure Web App Staging'
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'jumpstartpreview'
-          slot-name: 'Staging'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_STAGING_PUBLISHPROFILE_B3861F1C9D5D4DCBABC769C322A8E3EA }}
-          package: ./release.zip
-          type: ZIP
-          clean: true
-          restart: true
+  #     - name: 'Deploy to Azure Web App Staging'
+  #       id: deploy-to-webapp
+  #       uses: azure/webapps-deploy@v2
+  #       with:
+  #         app-name: 'jumpstartpreview'
+  #         slot-name: 'Staging'
+  #         publish-profile: ${{ secrets.AZUREAPPSERVICE_STAGING_PUBLISHPROFILE_B3861F1C9D5D4DCBABC769C322A8E3EA }}
+  #         package: ./release.zip
+  #         type: ZIP
+  #         clean: true
+  #         restart: true
 
   deploy-to-production:
     runs-on: ubuntu-latest
-    needs: deploy-to-staging
+    # needs: deploy-to-staging
+    needs: build
     environment:
       name: 'Production'
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
   
     steps:
-      - name: Log into Azure CLI service principal
-        uses: azure/login@v1.1
+      # - name: Log into Azure CLI service principal
+      #   uses: azure/login@v1.1
+      #   with:
+      #     creds: ${{ secrets.AZURE_CREDENTIALS }}
+
+      # - name: Swap slots
+      #   run: az webapp deployment slot swap -n jumpstartpreview -g rg-staticwebapp --slot staging --target-slot production
+
+      - name: Download artifact from build job
+        uses: actions/download-artifact@v3
         with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
+          name: node-app
 
-      - name: Swap slots
-        run: az webapp deployment slot swap -n jumpstartpreview -g rg-staticwebapp --slot staging --target-slot production
-
-      # - name: Download artifact from build job
-      #   uses: actions/download-artifact@v3
-      #   with:
-      #     name: node-app
-
-      # - name: 'Deploy to Azure Web App'
-      #   id: deploy-to-webapp
-      #   uses: azure/webapps-deploy@v2
-      #   with:
-      #     app-name: 'jumpstartpreview'
-      #     slot-name: 'Production'
-      #     publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3861F1C9D5D4DCBABC769C322A8E3EA }}
-      #     package: ./release.zip
-      #     type: ZIP
-      #     clean: true
-          # restart: true
+      - name: 'Deploy to Azure Web App'
+        id: deploy-to-webapp
+        uses: azure/webapps-deploy@v2
+        with:
+          app-name: 'jumpstartpreview'
+          slot-name: 'Production'
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_B3861F1C9D5D4DCBABC769C322A8E3EA }}
+          package: ./release.zip
+          type: ZIP
+          clean: true
+          restart: true
