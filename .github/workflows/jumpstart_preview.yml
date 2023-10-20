@@ -83,7 +83,7 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
   
     steps:
-      - name: Log into Azure CLI with service principal
+      - name: Log into Azure CLI service principal
         uses: azure/login@v1.1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
