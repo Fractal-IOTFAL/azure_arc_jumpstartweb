@@ -83,8 +83,12 @@ jobs:
       url: ${{ steps.deploy-to-webapp.outputs.webapp-url }}
   
     steps:
-      - name: Log into Azure CLI with service principal
-        run: az login -u arpit.jindal@iotfal.in -p G#chronos511
+      - name: Az CLI login
+        uses: azure/login@v1
+        with:
+          client-id: a4879ed6-48d5-454a-954b-0f017b2fd276
+          tenant-id: 59f18fe3-1a43-4615-92cf-0a5f7d917673
+          subscription-id: 7e060487-2666-4429-a584-dc180e8747bd
 
       - name: Swap slots
         run: az webapp deployment slot swap -n jumpstartpreview -g rg-staticwebapp --slot staging --target-slot production
