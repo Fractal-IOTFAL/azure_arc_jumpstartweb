@@ -10,7 +10,7 @@ import Doc from './components/Doc';
 const App = () => {
   const [menuItems, setMenuItems] = useState([]);
   const [selectedMenuItem, setSelectedMenuItem] = useState(null);
-  const [sideMenuItems, setSideMenuItems] = useState([]);
+  const [sideMenuItem, setSideMenuItem] = useState(null);
   const [selectedSideMenuItem, setSelectedSideMenuItem] = useState(null);
   const [markdownFileContents, setMarkdownFileContents] = useState('');
   const [markdownFilePath, setMarkdownFilePath] = useState('');
@@ -26,8 +26,8 @@ const App = () => {
     const fetchSideMenuData = async () => {
       const response = await fetch('./side-menu.json');
       const data = await response.json();
-      const sideMenuItems = data.hasOwnProperty('children') && data.children.length > 0 ? data.children : [];
-      setSideMenuItems(sideMenuItems);
+      sortNodeTree(data);
+      setSideMenuItem(data);
     };
 
     fetchMenuDrawerData();
@@ -58,7 +58,7 @@ const App = () => {
       const doc = await res.text();
       const htmlText = removeFrontmatter(doc);
       if (fullPath.includes('azure_arc_jumpstart/')) {
-        const node = findNode(sideMenuItems[0], path[0]);
+        const node = findNode(sideMenuItem, path[0]);
         setSelectedSideMenuItem((prev) => {
           if (node && node.children && node.children.length > 0) {
             console.log(node.children.length);
@@ -84,7 +84,6 @@ const App = () => {
     }
   }
 
-  // function to create html using frontmatter in node, include title or linkTitle and description
   const createHtml = (node) => {
     let html = '';
     if (node.frontMatter) {
@@ -102,7 +101,6 @@ const App = () => {
     return html;
   }
 
-  // sideMenuItems is a node tree.  each node has a path property.  a function to find the node with the path.
   const findNode = (node, path) => {
     if (node.path.replace('\\', '/') === path.replace('\\', '/')) {
       return node;
@@ -114,6 +112,25 @@ const App = () => {
       return result;
     }
     return null;
+  }
+
+  const sortNodeTree = (node) => {
+    if (node.children) {
+      node.children.sort((a, b) => {
+        const aWeight = a.frontMatter && a.frontMatter.weight ? a.frontMatter.weight : 0;
+        const bWeight = b.frontMatter && b.frontMatter.weight ? b.frontMatter.weight : 0;
+        if (aWeight < bWeight) {
+          return -1;
+        } else if (aWeight > bWeight) {
+          return 1;
+        } else {
+          return 0;
+        }
+      });
+      node.children.forEach((child) => {
+        sortNodeTree(child);
+      });
+    }
   }
 
   const onChange = (e) => {
@@ -165,9 +182,9 @@ const App = () => {
           }}
         >
           {
-            sideMenuItems && sideMenuItems.length > 0 && (
+            sideMenuItem && (
               <SideMenu
-                sideMenuItems={sideMenuItems}
+                sideMenuItem={sideMenuItem}
                 handleFileFetch={handleFileFetch}
               />
             )
