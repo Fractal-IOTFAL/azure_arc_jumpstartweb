@@ -20,7 +20,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "fetch-docs": "git submodule update --init --recursive && git submodule foreach --recursive git fetch && git submodule foreach --recursive git checkout origin/main && mkdir -p ./public/docs && mkdir -p ./public/img && cp -a ../arc_jumpstart_docs/docs/** ./public/docs/ && cp -a ../arc_jumpstart_docs/img/** ./public/img/ && ls -lah ./public/docs && ls -lah ./public/img",
+    "fetch-docs": "git submodule update --init --recursive && git submodule foreach --recursive git fetch && git submodule foreach --recursive git checkout origin/main && ls -lah ../arc_jumpstart_docs/docs/** && ls -lah ../arc_jumpstart_docs/img/**",
     "clean": "rm -rf ./public/docs/ && rm -rf ./public/img/"    
   },
   "eslintConfig": {
