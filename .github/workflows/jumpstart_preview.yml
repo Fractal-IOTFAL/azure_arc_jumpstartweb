@@ -30,7 +30,9 @@ jobs:
         run: |
           cd azure-arc-jumpstart-app
           npm run fetch-docs
+          npm install
           node pre-build-script.js
+          rm -rf node_modules
         env:
           CI: "" # need to fix this later
 
