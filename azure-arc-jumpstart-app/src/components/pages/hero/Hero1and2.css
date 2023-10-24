@@ -1,0 +1,214 @@
+/* style rules and vars for hero images 1 & 2 */
+
+.hero-1-and-2,
+.hero-1-and-2 * {
+  box-sizing: border-box;
+}
+.hero-1-and-2 {
+  background: #000000;
+  width: 1920px;
+  height: 1080px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-1-and-2-hero-colored {
+  color: #ffffff;
+  text-align: left;
+  font: 600 36px "Segoe UI", sans-serif;
+  position: absolute;
+  left: 79.hero-1-and-2-75px;
+  top: 66.hero-1-and-2-89px;
+}
+.hero-1-and-2-group-1321317009 {
+  position: absolute;
+  inset: 0;
+}
+.hero-1-and-2-group-1321316985 {
+  position: absolute;
+  left: 282px;
+  top: 487.hero-1-and-2-37px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321316986 {
+  width: 458.hero-1-and-2-54px;
+  height: 462.hero-1-and-2-73px;
+  position: static;
+}
+.hero-1-and-2-vector6 {
+  opacity: 0.hero-1-and-2-25;
+  position: absolute;
+  left: 424.hero-1-and-2-95px;
+  top: 259.hero-1-and-2-42px;
+  overflow: visible;
+}
+.hero-1-and-2-vector7 {
+  position: absolute;
+  left: 447.hero-1-and-2-97px;
+  top: 408.hero-1-and-2-47px;
+  overflow: visible;
+}
+.hero-1-and-2-vector8 {
+  position: absolute;
+  left: 531.hero-1-and-2-96px;
+  top: 308.hero-1-and-2-34px;
+  overflow: visible;
+}
+.hero-1-and-2-group {
+  opacity: 0.hero-1-and-2-30000001192092896;
+  position: absolute;
+  left: 436.hero-1-and-2-07px;
+  top: 311.hero-1-and-2-84px;
+  overflow: visible;
+}
+.hero-1-and-2-vector10 {
+  position: absolute;
+  left: 435.hero-1-and-2-56px;
+  top: 312.hero-1-and-2-39px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321316987 {
+  position: absolute;
+  left: 398.hero-1-and-2-12px;
+  top: 470.hero-1-and-2-89px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-1 {
+  position: absolute;
+  left: 506.hero-1-and-2-18px;
+  top: 602.hero-1-and-2-58px;
+  overflow: visible;
+}
+.hero-1-and-2-vector13 {
+  position: absolute;
+  left: 452.hero-1-and-2-14px;
+  top: 628.hero-1-and-2-89px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321317000 {
+  width: 140px;
+  height: 230.hero-1-and-2-47px;
+  position: static;
+}
+.hero-1-and-2-isolation-mode {
+  position: absolute;
+  left: 333.hero-1-and-2-74px;
+  top: 322.hero-1-and-2-88px;
+  overflow: visible;
+}
+.hero-1-and-2-vector16 {
+  border-radius: 0px;
+  position: absolute;
+  left: 312.hero-1-and-2-14px;
+  top: 335.hero-1-and-2-48px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-12 {
+  position: absolute;
+  left: 617px;
+  top: 434px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-13 {
+  position: absolute;
+  left: 710px;
+  top: 458px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321317008 {
+  position: absolute;
+  inset: 0;
+}
+.hero-1-and-2-group-1321317002 {
+  position: absolute;
+  left: 1108px;
+  top: 487.hero-1-and-2-37px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321317003 {
+  width: 458.hero-1-and-2-54px;
+  height: 462.hero-1-and-2-73px;
+  position: static;
+}
+.hero-1-and-2-vector26 {
+  opacity: 0.hero-1-and-2-25;
+  position: absolute;
+  left: 1250.hero-1-and-2-95px;
+  top: 259.hero-1-and-2-42px;
+  overflow: visible;
+}
+.hero-1-and-2-vector27 {
+  position: absolute;
+  left: 1273.hero-1-and-2-97px;
+  top: 408.hero-1-and-2-47px;
+  overflow: visible;
+}
+.hero-1-and-2-vector28 {
+  position: absolute;
+  left: 1357.hero-1-and-2-96px;
+  top: 308.hero-1-and-2-34px;
+  overflow: visible;
+}
+.hero-1-and-2-group2 {
+  opacity: 0.hero-1-and-2-30000001192092896;
+  position: absolute;
+  left: 1262.hero-1-and-2-07px;
+  top: 311.hero-1-and-2-84px;
+  overflow: visible;
+}
+.hero-1-and-2-vector30 {
+  position: absolute;
+  left: 1261.hero-1-and-2-56px;
+  top: 312.hero-1-and-2-39px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321317004 {
+  position: absolute;
+  left: 1224.hero-1-and-2-12px;
+  top: 470.hero-1-and-2-89px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-14 {
+  position: absolute;
+  left: 1332.hero-1-and-2-18px;
+  top: 602.hero-1-and-2-58px;
+  overflow: visible;
+}
+.hero-1-and-2-vector33 {
+  position: absolute;
+  left: 1278.hero-1-and-2-14px;
+  top: 628.hero-1-and-2-89px;
+  overflow: visible;
+}
+.hero-1-and-2-group-1321317005 {
+  width: 140px;
+  height: 231px;
+  position: static;
+}
+.hero-1-and-2-isolation-mode2 {
+  position: absolute;
+  left: 1159.hero-1-and-2-14px;
+  top: 322.hero-1-and-2-62px;
+  overflow: visible;
+}
+.hero-1-and-2-vector36 {
+  border-radius: 0px;
+  position: absolute;
+  left: 1138.hero-1-and-2-14px;
+  top: 334.hero-1-and-2-62px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-15 {
+  position: absolute;
+  left: 1443px;
+  top: 434px;
+  overflow: visible;
+}
+.hero-1-and-2-layer-16 {
+  position: absolute;
+  left: 1536px;
+  top: 458px;
+  overflow: visible;
+}
+
+/* vars */
+
