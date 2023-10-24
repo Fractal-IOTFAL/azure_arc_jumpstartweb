@@ -4,6 +4,7 @@
 /node_modules
 public/docs
 public/img
+release.zip
 /.pnp
 .pnp.js
 

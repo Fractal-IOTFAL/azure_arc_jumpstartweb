@@ -6,7 +6,7 @@ const yaml = require('js-yaml');
 function readYamlFrontMatter(filePath) {
   try {
     const fileContents = fs.readFileSync(filePath, 'utf8');
-    const match = fileContents.match(/---\r\n([\s\S]*?)\r\n---/);
+    const match = fileContents.match(/---\n([\s\S]*?)\n---/);
     if (match && match[1]) {
       let frontMatter = yaml.loadAll(match[1]);
       frontMatter = frontMatter[0];
@@ -51,7 +51,7 @@ function generateDirectoryJSON(dirPath, rootPath = '') {
 
 function main() {
   // Starting directory path
-  const rootDirPath = './public/docs';
+  const rootDirPath = '../arc_jumpstart_docs/docs';
   // Generate the JSON representation of the directory hierarchy
   const directoryJSON = generateDirectoryJSON(rootDirPath, rootDirPath);
   // Write the JSON to a file
