@@ -1,6 +1,19 @@
-.custom-anchor {
+.custom-anchor a, li.custom-list-item a {
     color: var(--neutral-text-text-cta, #50e6ff);
     font: 400 16px/24px "Segoe UI", sans-serif;
+    text-decoration: none;
+}
+
+a {
+    color: var(--neutral-text-text-cta, #50e6ff);
+    font: 400 16px/24px "Segoe UI", sans-serif;
+    text-decoration: none;
+}
+
+a:visited {
+    color: var(--neutral-text-text-cta, #50e6ff);
+    font: 400 16px/24px "Segoe UI", sans-serif;
+    text-decoration: none;
 }
 
 .custom-anchor:hover {
@@ -16,5 +29,3 @@
     border-width: 1px;
     outline: none;
 }
-
-strong a.custom-anchor {}
